@@ -9,7 +9,7 @@ namespace ShopBridge.Model
     public class Product
     {
         [Key]
-        public Guid ProductId { get; set; }
+        public int ProductId { get; set; }
         public string prodName { get; set; }
         public string prodDescription { get; set; }
         public decimal prodPrice { get; set; }

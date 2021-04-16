@@ -30,14 +30,23 @@ namespace ShopBridge.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProducts(int id)
         {
-            var products = await _context.Products.FindAsync(id);
 
-            if (products == null)
+            try 
             {
-                return NotFound();
-            }
+                var products = await _context.Products.FindAsync(id);
 
-            return products;
+                if (products == null)
+                {
+                    return NotFound();
+                }
+
+                return products;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            
         }
 
         // PUT: api/Products/5
